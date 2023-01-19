@@ -39,13 +39,14 @@ $create_requests = [
                             FOREIGN KEY (Id_user)
                                 REFERENCES users (Id_user),
                             FOREIGN KEY (Id_card)
-                                REFERENCES cards (Id_card)
+                                REFERENCES cards (Id_card),
+                            PRIMARY KEY (Id_card, Id_user)
                         );',
   'Pmdecks' =>  'DROP TABLE IF EXISTS pmdecks;
                         CREATE TABLE pmdecks
                         (
                             Id_pmdeck SERIAL NOT NULL PRIMARY KEY,
-                            Id_serie INT NOT NULL PRIMARY KEY,
+                            Id_serie INT NOT NULL,
                             Name_pmdeck VARCHAR(30)
                         );',
   'Pmdecks_cards' =>  'DROP TABLE IF EXISTS pmdecks_cards;
@@ -56,7 +57,8 @@ $create_requests = [
                             FOREIGN KEY (Id_pmdeck)
                                 REFERENCES pmdecks (Id_pmdeck),
                             FOREIGN KEY (Id_card)
-                                REFERENCES cards (Id_card)
+                                REFERENCES cards (Id_card),
+                            PRIMARY KEY (Id_pmdeck, Id_card)
                         );',
   'Cdecks'  =>          'DROP TABLE IF EXISTS cdecks;
                             CREATE TABLE cdecks
@@ -75,7 +77,8 @@ $create_requests = [
                                 FOREIGN KEY (Id_cdeck)
                                     REFERENCES cdecks (Id_cdeck),
                                 FOREIGN KEY (Id_card)
-                                    REFERENCES cards (Id_card)
+                                    REFERENCES cards (Id_card),
+                                PRIMARY KEY (Id_card, Id_cdeck)
                             );'
 ];
 
