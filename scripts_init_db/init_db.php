@@ -7,14 +7,14 @@ $create_requests = [
                         Email_admin VARCHAR(80) NOT NULL,
                         Passwd_admin VARCHAR(80) NOT NULL
                     );',
-  'Users' =>      'DROP TABLE IF EXISTS users;
+  'Users' =>      'DROP TABLE IF EXISTS users CASCADE;
                     CREATE TABLE users
                     (
                         Id_user SERIAL NOT NULL PRIMARY KEY,
                         Email_user VARCHAR(80) NOT NULL,
                         Passwd_user VARCHAR(80) NOT NULL
                     );',
-  'Series' =>     'DROP TABLE IF EXISTS series;
+  'Series' =>     'DROP TABLE IF EXISTS series CASCADE;
                     CREATE TABLE series
                     (
                         Id_serie SERIAL NOT NULL PRIMARY KEY,
@@ -22,7 +22,7 @@ $create_requests = [
                         Total_card_serie INT NOT NULL,
                         Total_deck_serie INT NOT NULL
                     );',
-  'Cards' =>    'DROP TABLE IF EXISTS cards;
+  'Cards' =>    'DROP TABLE IF EXISTS cards CASCADE;
                     CREATE TABLE cards
                     (
                         Id_card SERIAL NOT NULL PRIMARY KEY,
@@ -42,7 +42,7 @@ $create_requests = [
                                 REFERENCES cards (Id_card),
                             PRIMARY KEY (Id_card, Id_user)
                         );',
-  'Pmdecks' =>  'DROP TABLE IF EXISTS pmdecks;
+  'Pmdecks' =>  'DROP TABLE IF EXISTS pmdecks CASCADE;
                         CREATE TABLE pmdecks
                         (
                             Id_pmdeck SERIAL NOT NULL PRIMARY KEY,
@@ -60,7 +60,7 @@ $create_requests = [
                                 REFERENCES cards (Id_card),
                             PRIMARY KEY (Id_pmdeck, Id_card)
                         );',
-  'Cdecks'  =>          'DROP TABLE IF EXISTS cdecks;
+  'Cdecks'  =>          'DROP TABLE IF EXISTS cdecks CASCADE;
                             CREATE TABLE cdecks
                             (
                                 Id_cdeck SERIAL NOT NULL PRIMARY KEY,
