@@ -14,13 +14,33 @@ $create_requests = [
                         Email_user VARCHAR(80) NOT NULL,
                         Passwd_user VARCHAR(80) NOT NULL
                     );',
-  'Series' =>     'DROP TABLE IF EXISTS series CASCADE;
-                    CREATE TABLE series
+  'Blocs'      =>  'DROP TABLE IF EXISTS Bloc CASCADE;
+                    CREATE TABLE blocs
                     (
-                        Id_serie SERIAL NOT NULL PRIMARY KEY,
-                        Name_serie VARCHAR(30) NOT NULL,
-                        Total_card_serie INT NOT NULL,
-                        Total_deck_serie INT NOT NULL
+                        Id_bloc SERIAL NOT NULL PRIMARY KEY,
+                        Name_bloc VARCHAR(30) NOT NULL,
+                        Total_serie_bloc INT NOT NULL
+                    )',
+  'Series'  =>      'DROP TABLE IF EXISTS blocs CASCADE;
+                        CREATE TABLE Blocs
+                        (
+                            Id_serie SERIAL NOT NULL PRIMARY KEY,
+                            Name_serie VARCHAR(30) NOT NULL,
+                            Total_ext_serie INT NOT NULL,
+                            Id_bloc INT NOT NULL,
+                            FOREIGN KEY (Id_bloc)
+                                REFERENCES blocs (Id_bloc)
+                        )',
+  'Extensions' =>  'DROP TABLE IF EXISTS extensions CASCADE;
+                    CREATE TABLE extensions
+                    (
+                        Id_ext SERIAL NOT NULL PRIMARY KEY,
+                        Name_ext VARCHAR(30) NOT NULL,
+                        Total_card_ext INT NOT NULL,
+                        Total_deck_ext INT NOT NULL,
+                        Id_serie INT NOT NULL,
+                        FOREIGN KEY (Id_serie)
+                            REFERENCES series (Id_serie)
                     );',
   'Cards' =>    'DROP TABLE IF EXISTS cards CASCADE;
                     CREATE TABLE cards
