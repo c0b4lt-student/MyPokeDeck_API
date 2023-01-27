@@ -16,7 +16,11 @@
                     (\'BlackNWhite\', 12),
                     (\'XY\', 15),
                     (\'SunNMoon\', 16),
-                    (\'SwordNShield\', 18);'
+                    (\'SwordNShield\', 18);',
+    'extensions'  =>  'INSERT INTO extensions (name_ext, total_card_ext, total_deck_ext, id_serie) VALUES
+                        (\'Base set\', 102, 5, 1),
+                        (\'Jungle\', 64, 2, 1),
+                        (\'Fossil\', 62, 2, 1);'
   ];
 
 function populate_table($pdo, $request) {
