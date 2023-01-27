@@ -14,7 +14,6 @@ $create_requests = [
                         Email_user VARCHAR(80) NOT NULL,
                         Passwd_user VARCHAR(80) NOT NULL
                     );',
-  'Blocs'      =>  'DROP TABLE IF EXISTS blocs CASCADE;',
   'Series'  =>      'DROP TABLE IF EXISTS series CASCADE;
                         CREATE TABLE series
                         (
