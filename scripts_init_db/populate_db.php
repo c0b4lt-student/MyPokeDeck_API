@@ -20,7 +20,8 @@
     'extensions'  =>  'INSERT INTO extensions (name_ext, total_card_ext, total_deck_ext, id_serie) VALUES
                         (\'Base set\', 102, 5, 1),
                         (\'Jungle\', 64, 2, 1),
-                        (\'Fossil\', 62, 2, 1);'
+                        (\'Fossil\', 62, 2, 1),
+                        (\'EX ruby & Sapphire\', 109, 2, 2)'
   ];
 
 function populate_table($pdo, $request) {
