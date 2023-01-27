@@ -21,8 +21,8 @@ $create_requests = [
                         Name_bloc VARCHAR(30) NOT NULL,
                         Total_serie_bloc INT NOT NULL
                     )',
-  'Series'  =>      'DROP TABLE IF EXISTS blocs CASCADE;
-                        CREATE TABLE Blocs
+  'Series'  =>      'DROP TABLE IF EXISTS series CASCADE;
+                        CREATE TABLE series
                         (
                             Id_serie SERIAL NOT NULL PRIMARY KEY,
                             Name_serie VARCHAR(30) NOT NULL,
