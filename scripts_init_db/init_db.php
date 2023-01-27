@@ -14,22 +14,13 @@ $create_requests = [
                         Email_user VARCHAR(80) NOT NULL,
                         Passwd_user VARCHAR(80) NOT NULL
                     );',
-  'Blocs'      =>  'DROP TABLE IF EXISTS blocs CASCADE;
-                    CREATE TABLE blocs
-                    (
-                        Id_bloc SERIAL NOT NULL PRIMARY KEY,
-                        Name_bloc VARCHAR(30) NOT NULL,
-                        Total_serie_bloc INT NOT NULL
-                    )',
+  'Blocs'      =>  'DROP TABLE IF EXISTS blocs CASCADE;',
   'Series'  =>      'DROP TABLE IF EXISTS series CASCADE;
                         CREATE TABLE series
                         (
                             Id_serie SERIAL NOT NULL PRIMARY KEY,
                             Name_serie VARCHAR(30) NOT NULL,
-                            Total_ext_serie INT NOT NULL,
-                            Id_bloc INT NOT NULL,
-                            FOREIGN KEY (Id_bloc)
-                                REFERENCES blocs (Id_bloc)
+                            Total_ext_serie INT NOT NULL
                         )',
   'Extensions' =>  'DROP TABLE IF EXISTS extensions CASCADE;
                     CREATE TABLE extensions
