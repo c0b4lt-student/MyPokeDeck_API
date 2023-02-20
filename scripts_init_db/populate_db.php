@@ -6,10 +6,6 @@
     'contact.karchak@gang.fr' => 'kerc'
   ];
   $insert_requests = [
-    'users' => 'INSERT INTO users (email_user, passwd_user) VALUES
-                    (\'thomas.flora2001@gmail.com\', \'nopass\'),
-                    (\'contact.ziak@gang.fr\', \'nopass\'),
-                    (\'contact.karchak@gang.fr\', \'nopass\');',
     'series' =>  'INSERT INTO series (name_serie, total_ext_serie) VALUES
                     (\'Wizards\', 19),
                     (\'Ex\', 17),

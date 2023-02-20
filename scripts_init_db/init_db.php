@@ -4,14 +4,14 @@ $create_requests = [
                     CREATE TABLE admins
                     (
                         Id_admin SERIAL NOT NULL PRIMARY KEY,
-                        Email_admin VARCHAR(80) NOT NULL,
+                        Email_admin VARCHAR(80) NOT NULL UNIQUE,
                         Passwd_admin VARCHAR(80) NOT NULL
                     );',
   'Users' =>      'DROP TABLE IF EXISTS users CASCADE;
                     CREATE TABLE users
                     (
                         Id_user SERIAL NOT NULL PRIMARY KEY,
-                        Email_user VARCHAR(80) NOT NULL,
+                        Email_user VARCHAR(80) NOT NULL UNIQUE,
                         Passwd_user VARCHAR(80) NOT NULL
                     );',
   'Series'  =>      'DROP TABLE IF EXISTS series CASCADE;
