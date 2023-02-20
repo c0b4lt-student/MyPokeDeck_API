@@ -1,8 +1,11 @@
 <?php
 
+  $users = [
+    'thomas.flora2001@gmail.com' => 'flora2001',
+    'contact.ziak@gang.fr' => 'ekipdu91',
+    'contact.karchak@gang.fr' => 'kerc'
+  ];
   $insert_requests = [
-    'admins' => 'INSERT INTO admins (email_admin, passwd_admin) VALUES
-                    (\'corentin.turgis@outlook.fr\', \'nopass\');',
     'users' => 'INSERT INTO users (email_user, passwd_user) VALUES
                     (\'thomas.flora2001@gmail.com\', \'nopass\'),
                     (\'contact.ziak@gang.fr\', \'nopass\'),
@@ -32,6 +35,16 @@ try {
   $pdo = new PDO('pgsql:host=ep-small-bush-994035.eu-central-1.aws.neon.tech;port=5432;dbname=neondb;user=c0b4lt-student;password=7sqa5xbkJifN');
   foreach ($insert_requests as $table_name => $request) {
     populate_table($pdo, $request);
+  }
+  $stmt = $pdo->prepare('INSERT INTO admins(email_admin, passwd_admin) VALUES (:email, :passwd)');
+  $stmt->bindValue(':email', 'corentin.turgis@outlook.fr');
+  $stmt->bindValue(':passwd', password_hash('vturgis', PASSWORD_BCRYPT));
+  $stmt->execute();
+  foreach ($users as $user_email => $user_pass) {
+    $stmt = $pdo->prepare('INSERT INTO users(email_user, passwd_user) VALUES (:email, :passwd)');
+    $stmt->bindValue(':email', $user_email);
+    $stmt->bindValue(':passwd', password_hash($user_pass, PASSWORD_BCRYPT));
+    $stmt->execute();
   }
 } catch (PDOException $e) {
   echo $e->getMessage();
